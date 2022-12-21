@@ -1,19 +1,25 @@
 {
-  "home": {
-    "title": "Welcome, Java Hipster!",
-    "subtitle": "This is your homepage",
-    "logged": {
-      "message": "You are logged in as user \"{{username}}\"."
-    },
-    "question": "If you have any question on JHipster:",
-    "link": {
-      "homepage": "JHipster homepage",
-      "stackoverflow": "JHipster on Stack Overflow",
-      "bugtracker": "JHipster bug tracker",
-      "chat": "JHipster public chat room",
-      "follow": "follow @jhipster on Twitter"
-    },
-    "like": "If you like JHipster, don't forget to give us a star on",
-    "github": "GitHub"
+  "schoolApp": {
+    "home": {
+      "home": {
+        "title": "Homes",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Home",
+        "createOrEditLabel": "Create or edit a Home",
+        "notFound": "No Homes found"
+      },
+      "created": "A new Home is created with identifier {{ param }}",
+      "updated": "A Home is updated with identifier {{ param }}",
+      "deleted": "A Home is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Home {{ id }}?"
+      },
+      "detail": {
+        "title": "Home"
+      },
+      "id": "ID",
+      "description": "Description",
+      "sliders": "Sliders"
+    }
   }
 }

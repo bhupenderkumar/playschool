@@ -1,0 +1,27 @@
+{
+  "schoolApp": {
+    "studentIDCard": {
+      "home": {
+        "title": "Student ID Cards",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Student ID Card",
+        "createOrEditLabel": "Create or edit a Student ID Card",
+        "notFound": "No Student ID Cards found"
+      },
+      "created": "A new Student ID Card is created with identifier {{ param }}",
+      "updated": "A Student ID Card is updated with identifier {{ param }}",
+      "deleted": "A Student ID Card is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Student ID Card {{ id }}?"
+      },
+      "detail": {
+        "title": "Student ID Card"
+      },
+      "id": "ID",
+      "cardNumber": "Card Number",
+      "issueDate": "Issue Date",
+      "expiryDate": "Expiry Date",
+      "student": "Student"
+    }
+  }
+}

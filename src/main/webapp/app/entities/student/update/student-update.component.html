@@ -1,0 +1,199 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-student-heading" data-cy="StudentCreateUpdateHeading" jhiTranslate="schoolApp.student.home.createOrEditLabel">
+        Create or edit a Student
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" *ngIf="editForm.controls.id.value !== null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="schoolApp.student.name" for="field_name">Name</label>
+          <input type="text" class="form-control" name="name" id="field_name" data-cy="name" formControlName="name" />
+          <div *ngIf="editForm.get('name')!.invalid && (editForm.get('name')!.dirty || editForm.get('name')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('name')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="schoolApp.student.enrollmentDate" for="field_enrollmentDate">Enrollment Date</label>
+          <div class="input-group">
+            <input
+              id="field_enrollmentDate"
+              data-cy="enrollmentDate"
+              type="text"
+              class="form-control"
+              name="enrollmentDate"
+              ngbDatepicker
+              #enrollmentDateDp="ngbDatepicker"
+              formControlName="enrollmentDate"
+            />
+            <button type="button" class="btn btn-secondary" (click)="enrollmentDateDp.toggle()">
+              <fa-icon icon="calendar-alt"></fa-icon>
+            </button>
+          </div>
+          <div
+            *ngIf="
+              editForm.get('enrollmentDate')!.invalid && (editForm.get('enrollmentDate')!.dirty || editForm.get('enrollmentDate')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('enrollmentDate')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="schoolApp.student.graduationDate" for="field_graduationDate">Graduation Date</label>
+          <div class="input-group">
+            <input
+              id="field_graduationDate"
+              data-cy="graduationDate"
+              type="text"
+              class="form-control"
+              name="graduationDate"
+              ngbDatepicker
+              #graduationDateDp="ngbDatepicker"
+              formControlName="graduationDate"
+            />
+            <button type="button" class="btn btn-secondary" (click)="graduationDateDp.toggle()">
+              <fa-icon icon="calendar-alt"></fa-icon>
+            </button>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="schoolApp.student.photo" for="field_photo">Photo</label>
+          <div>
+            <div *ngIf="editForm.get('photo')!.value" class="form-text text-danger clearfix">
+              <a
+                class="pull-start"
+                (click)="openFile(editForm.get('photo')!.value!, editForm.get('photoContentType')!.value!)"
+                jhiTranslate="entity.action.open"
+                >Open</a
+              ><br />
+              <span class="pull-start">{{ editForm.get('photoContentType')!.value }}, {{ byteSize(editForm.get('photo')!.value!) }}</span>
+              <button
+                type="button"
+                (click)="editForm.patchValue({ photo: undefined, photoContentType: undefined })"
+                class="btn btn-secondary btn-xs pull-end"
+              >
+                <fa-icon icon="times"></fa-icon>
+              </button>
+            </div>
+            <input
+              type="file"
+              id="file_photo"
+              data-cy="photo"
+              (change)="setFileData($event, 'photo', false)"
+              jhiTranslate="entity.action.addblob"
+            />
+          </div>
+          <input type="hidden" class="form-control" name="photo" id="field_photo" data-cy="photo" formControlName="photo" />
+          <input
+            type="hidden"
+            class="form-control"
+            name="photoContentType"
+            id="field_photoContentType"
+            formControlName="photoContentType"
+          />
+          <div *ngIf="editForm.get('photo')!.invalid && (editForm.get('photo')!.dirty || editForm.get('photo')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('photo')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="schoolApp.student.homeAddress" for="field_homeAddress">Home Address</label>
+          <input
+            type="text"
+            class="form-control"
+            name="homeAddress"
+            id="field_homeAddress"
+            data-cy="homeAddress"
+            formControlName="homeAddress"
+          />
+          <div *ngIf="editForm.get('homeAddress')!.invalid && (editForm.get('homeAddress')!.dirty || editForm.get('homeAddress')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('homeAddress')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="schoolApp.student.emergencyContact" for="field_emergencyContact">Emergency Contact</label>
+          <input
+            type="text"
+            class="form-control"
+            name="emergencyContact"
+            id="field_emergencyContact"
+            data-cy="emergencyContact"
+            formControlName="emergencyContact"
+          />
+          <div
+            *ngIf="
+              editForm.get('emergencyContact')!.invalid &&
+              (editForm.get('emergencyContact')!.dirty || editForm.get('emergencyContact')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('emergencyContact')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="schoolApp.student.parent" for="field_parent">Parent</label>
+          <select
+            class="form-control"
+            id="field_parent"
+            data-cy="parent"
+            name="parent"
+            formControlName="parent"
+            [compareWith]="compareParent"
+          >
+            <option [ngValue]="null"></option>
+            <option [ngValue]="parentOption" *ngFor="let parentOption of parentsSharedCollection">{{ parentOption.id }}</option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

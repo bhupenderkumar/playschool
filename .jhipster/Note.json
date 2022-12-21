@@ -1,0 +1,48 @@
+{
+  "applications": "*",
+  "changelogDate": "20221221105425",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "note",
+  "fields": [
+    {
+      "fieldName": "subject",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "message",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "text",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "date",
+      "fieldType": "Instant",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Note",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "teacher",
+      "relationshipName": "teacher",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "student",
+      "relationshipName": "student",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "parent",
+      "relationshipName": "parent",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

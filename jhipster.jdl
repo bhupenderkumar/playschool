@@ -1,10 +1,6 @@
-application {
-    config {
-        baseName School,
-        packageName com.mycompany.school,
-        applicationType monolithic,
-        clientFramework angularX
-    }
+entity Home{
+    description String required 
+    sliders Blob 
 }
 
 entity Student {
@@ -34,7 +30,7 @@ entity Fees {
 }
 
 entity Attendance {
-    date LocalDateTime required,
+    date Instant required,
     present Boolean required
 }
 
@@ -53,20 +49,14 @@ entity Parent {
 entity Note {
     subject String required,
     message TextBlob required,
-    date LocalDateTime required
+    date Instant required
 }
 
 relationship OneToMany {
     Student{courses} to Course
 }
 
-relationship OneToMany {
-    Student{attendances} to Attendance
-}
 
-relationship OneToMany {
-    Student{fees} to Fees
-}
 
 relationship OneToMany {
     Parent{students} to Student

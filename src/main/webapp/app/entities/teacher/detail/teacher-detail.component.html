@@ -1,0 +1,40 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="teacher">
+      <h2 data-cy="teacherDetailsHeading"><span jhiTranslate="schoolApp.teacher.detail.title">Teacher</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ teacher.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="schoolApp.teacher.name">Name</span></dt>
+        <dd>
+          <span>{{ teacher.name }}</span>
+        </dd>
+        <dt><span jhiTranslate="schoolApp.teacher.subject">Subject</span></dt>
+        <dd>
+          <span>{{ teacher.subject }}</span>
+        </dd>
+        <dt><span jhiTranslate="schoolApp.teacher.hireDate">Hire Date</span></dt>
+        <dd>
+          <span>{{ teacher.hireDate | formatMediumDate }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/teacher', teacher.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

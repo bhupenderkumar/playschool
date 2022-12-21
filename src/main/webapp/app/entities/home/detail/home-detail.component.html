@@ -1,0 +1,39 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="home">
+      <h2 data-cy="homeDetailsHeading"><span jhiTranslate="schoolApp.home.detail.title">Home</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ home.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="schoolApp.home.description">Description</span></dt>
+        <dd>
+          <span>{{ home.description }}</span>
+        </dd>
+        <dt><span jhiTranslate="schoolApp.home.sliders">Sliders</span></dt>
+        <dd>
+          <div *ngIf="home.sliders">
+            <a (click)="openFile(home.sliders, home.slidersContentType)" jhiTranslate="entity.action.open">Open</a>
+            {{ home.slidersContentType }}, {{ byteSize(home.sliders) }}
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/home', home.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

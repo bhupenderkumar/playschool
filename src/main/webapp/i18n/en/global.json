@@ -7,6 +7,14 @@
       "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
       "entities": {
         "main": "Entities",
+        "student": "Student",
+        "teacher": "Teacher",
+        "course": "Course",
+        "fees": "Fees",
+        "attendance": "Attendance",
+        "studentIdCard": "Student ID Card",
+        "parent": "Parent",
+        "note": "Note",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {

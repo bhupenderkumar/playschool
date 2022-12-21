@@ -1,0 +1,46 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="studentIDCard">
+      <h2 data-cy="studentIDCardDetailsHeading"><span jhiTranslate="schoolApp.studentIDCard.detail.title">Student ID Card</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ studentIDCard.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="schoolApp.studentIDCard.cardNumber">Card Number</span></dt>
+        <dd>
+          <span>{{ studentIDCard.cardNumber }}</span>
+        </dd>
+        <dt><span jhiTranslate="schoolApp.studentIDCard.issueDate">Issue Date</span></dt>
+        <dd>
+          <span>{{ studentIDCard.issueDate | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="schoolApp.studentIDCard.expiryDate">Expiry Date</span></dt>
+        <dd>
+          <span>{{ studentIDCard.expiryDate | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="schoolApp.studentIDCard.student">Student</span></dt>
+        <dd>
+          <div *ngIf="studentIDCard.student">
+            <a [routerLink]="['/student', studentIDCard.student.id, 'view']">{{ studentIDCard.student.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/student-id-card', studentIDCard.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

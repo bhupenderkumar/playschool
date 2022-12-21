@@ -1,0 +1,32 @@
+{
+  "applications": "*",
+  "changelogDate": "20221221105422",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "attendance",
+  "fields": [
+    {
+      "fieldName": "date",
+      "fieldType": "Instant",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "present",
+      "fieldType": "Boolean",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Attendance",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "student",
+      "relationshipName": "student",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

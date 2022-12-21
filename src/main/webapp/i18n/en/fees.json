@@ -1,0 +1,27 @@
+{
+  "schoolApp": {
+    "fees": {
+      "home": {
+        "title": "Fees",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Fees",
+        "createOrEditLabel": "Create or edit a Fees",
+        "notFound": "No Fees found"
+      },
+      "created": "A new Fees is created with identifier {{ param }}",
+      "updated": "A Fees is updated with identifier {{ param }}",
+      "deleted": "A Fees is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Fees {{ id }}?"
+      },
+      "detail": {
+        "title": "Fees"
+      },
+      "id": "ID",
+      "amount": "Amount",
+      "dueDate": "Due Date",
+      "paid": "Paid",
+      "student": "Student"
+    }
+  }
+}

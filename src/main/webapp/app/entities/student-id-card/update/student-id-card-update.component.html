@@ -1,0 +1,126 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-student-id-card-heading"
+        data-cy="StudentIDCardCreateUpdateHeading"
+        jhiTranslate="schoolApp.studentIDCard.home.createOrEditLabel"
+      >
+        Create or edit a Student ID Card
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" *ngIf="editForm.controls.id.value !== null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="schoolApp.studentIDCard.cardNumber" for="field_cardNumber">Card Number</label>
+          <input
+            type="text"
+            class="form-control"
+            name="cardNumber"
+            id="field_cardNumber"
+            data-cy="cardNumber"
+            formControlName="cardNumber"
+          />
+          <div *ngIf="editForm.get('cardNumber')!.invalid && (editForm.get('cardNumber')!.dirty || editForm.get('cardNumber')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('cardNumber')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="schoolApp.studentIDCard.issueDate" for="field_issueDate">Issue Date</label>
+          <div class="input-group">
+            <input
+              id="field_issueDate"
+              data-cy="issueDate"
+              type="text"
+              class="form-control"
+              name="issueDate"
+              ngbDatepicker
+              #issueDateDp="ngbDatepicker"
+              formControlName="issueDate"
+            />
+            <button type="button" class="btn btn-secondary" (click)="issueDateDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+          </div>
+          <div *ngIf="editForm.get('issueDate')!.invalid && (editForm.get('issueDate')!.dirty || editForm.get('issueDate')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('issueDate')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="schoolApp.studentIDCard.expiryDate" for="field_expiryDate">Expiry Date</label>
+          <div class="input-group">
+            <input
+              id="field_expiryDate"
+              data-cy="expiryDate"
+              type="text"
+              class="form-control"
+              name="expiryDate"
+              ngbDatepicker
+              #expiryDateDp="ngbDatepicker"
+              formControlName="expiryDate"
+            />
+            <button type="button" class="btn btn-secondary" (click)="expiryDateDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+          </div>
+          <div *ngIf="editForm.get('expiryDate')!.invalid && (editForm.get('expiryDate')!.dirty || editForm.get('expiryDate')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('expiryDate')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="schoolApp.studentIDCard.student" for="field_student">Student</label>
+          <select
+            class="form-control"
+            id="field_student"
+            data-cy="student"
+            name="student"
+            formControlName="student"
+            [compareWith]="compareStudent"
+          >
+            <option [ngValue]="null"></option>
+            <option [ngValue]="studentOption" *ngFor="let studentOption of studentsSharedCollection">{{ studentOption.id }}</option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

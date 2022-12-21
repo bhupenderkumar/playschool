@@ -48,6 +48,20 @@ public class CacheConfiguration {
             createCache(cm, com.mycompany.school.domain.User.class.getName());
             createCache(cm, com.mycompany.school.domain.Authority.class.getName());
             createCache(cm, com.mycompany.school.domain.User.class.getName() + ".authorities");
+            createCache(cm, com.mycompany.school.domain.Student.class.getName());
+            createCache(cm, com.mycompany.school.domain.Student.class.getName() + ".courses");
+            createCache(cm, com.mycompany.school.domain.Student.class.getName() + ".attendances");
+            createCache(cm, com.mycompany.school.domain.Student.class.getName() + ".fees");
+            createCache(cm, com.mycompany.school.domain.Teacher.class.getName());
+            createCache(cm, com.mycompany.school.domain.Course.class.getName());
+            createCache(cm, com.mycompany.school.domain.Fees.class.getName());
+            createCache(cm, com.mycompany.school.domain.Attendance.class.getName());
+            createCache(cm, com.mycompany.school.domain.StudentIDCard.class.getName());
+            createCache(cm, com.mycompany.school.domain.Parent.class.getName());
+            createCache(cm, com.mycompany.school.domain.Parent.class.getName() + ".students");
+            createCache(cm, com.mycompany.school.domain.Note.class.getName());
+            createCache(cm, com.mycompany.school.domain.Home.class.getName());
+            createCache(cm, com.mycompany.school.domain.Attendance.class.getName() + ".students");
             // jhipster-needle-ehcache-add-entry
         };
     }
