@@ -1,0 +1,17 @@
+{
+  "generator-jhipster": {
+    "appsFolders": ["test2"],
+    "clusteredDbApps": {},
+    "directoryPath": "../../",
+    "dockerPushCommand": "docker push",
+    "dockerRepositoryName": "",
+    "ingressDomain": "",
+    "istio": false,
+    "jwtSecretKey": "ZTRhNjZhZWNkYjQxNmYxNjUwODFiMzE4NzVkNjkyMGFlN2VlMWE4NGYzODk2MjMwMzY2YzkzYzkwY2VlMmYyNGFkZjQ2ZTIxMmQwOTMzMDA1YTFlNzg5NzIxOWI0MGQwMjM5Zg==",
+    "kubernetesNamespace": "default",
+    "kubernetesServiceType": "LoadBalancer",
+    "kubernetesUseDynamicStorage": false,
+    "monitoring": "no",
+    "serviceDiscoveryType": false
+  }
+}

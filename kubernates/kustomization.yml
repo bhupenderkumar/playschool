@@ -1,0 +1,12 @@
+commonLabels:
+  app.kubernetes.io/genereted-by: JHipster
+
+resources:
+  # Individual apps
+  - school-k8s/school-deployment.yml
+  - school-k8s/school-service.yml
+  - school-k8s/school-postgresql.yml
+  - school-k8s/jwt-secret.yml
+# service discovery eureka/consul
+
+patchesJson6902:
