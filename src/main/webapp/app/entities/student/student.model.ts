@@ -10,7 +10,7 @@ export interface IStudent {
   photoContentType?: string | null;
   homeAddress?: string | null;
   emergencyContact?: string | null;
-  parent?: Pick<IParent, 'id'> | null;
+  parent?: Pick<IParent, 'id' | 'name'> | null;
 }
 
 export type NewStudent = Omit<IStudent, 'id'> & { id: null };

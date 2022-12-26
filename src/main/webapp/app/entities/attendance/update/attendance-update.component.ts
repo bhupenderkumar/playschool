@@ -49,6 +49,7 @@ export class AttendanceUpdateComponent implements OnInit {
   save(): void {
     this.isSaving = true;
     const attendance = this.attendanceFormService.getAttendance(this.editForm);
+    let students = attendance.student;
     if (attendance.id !== null) {
       this.subscribeToSaveResponse(this.attendanceService.update(attendance));
     } else {

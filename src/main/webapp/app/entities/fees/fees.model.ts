@@ -6,7 +6,7 @@ export interface IFees {
   amount?: number | null;
   dueDate?: dayjs.Dayjs | null;
   paid?: boolean | null;
-  student?: Pick<IStudent, 'id'> | null;
+  student?: Pick<IStudent, 'id' | 'name'> | null;
 }
 
 export type NewFees = Omit<IFees, 'id'> & { id: null };

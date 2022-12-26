@@ -9,7 +9,8 @@ import { EntityArrayResponseType, StudentService } from '../service/student.serv
 import { StudentDeleteDialogComponent } from '../delete/student-delete-dialog.component';
 import { DataUtils } from 'app/core/util/data-util.service';
 import { SortService } from 'app/shared/sort/sort.service';
-
+import { DomSanitizer } from '@angular/platform-browser';
+import { SafeUrl } from '@angular/platform-browser';
 @Component({
   selector: 'jhi-student',
   templateUrl: './student.component.html',
@@ -27,7 +28,8 @@ export class StudentComponent implements OnInit {
     public router: Router,
     protected sortService: SortService,
     protected dataUtils: DataUtils,
-    protected modalService: NgbModal
+    protected modalService: NgbModal,
+    private sanitizer: DomSanitizer
   ) {}
 
   trackId = (_index: number, item: IStudent): number => this.studentService.getStudentIdentifier(item);
@@ -91,7 +93,8 @@ export class StudentComponent implements OnInit {
   }
 
   protected refineData(data: IStudent[]): IStudent[] {
-    return data.sort(this.sortService.startSort(this.predicate, this.ascending ? 1 : -1));
+    let datas = data.sort(this.sortService.startSort(this.predicate, this.ascending ? 1 : -1));
+    return datas;
   }
 
   protected fillComponentAttributesFromResponseBody(data: IStudent[] | null): IStudent[] {

@@ -75,7 +75,7 @@
           <td>{{ fees.paid }}</td>
           <td>
             <div *ngIf="fees.student">
-              <a [routerLink]="['/student', fees.student.id, 'view']">{{ fees.student.id }}</a>
+              <a [routerLink]="['/student', fees.student.id, 'view']">{{ fees.student.id }}({{ fees.student.name }})</a>
             </div>
           </td>
           <td class="text-end">

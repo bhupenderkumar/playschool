@@ -174,7 +174,9 @@
             [compareWith]="compareParent"
           >
             <option [ngValue]="null"></option>
-            <option [ngValue]="parentOption" *ngFor="let parentOption of parentsSharedCollection">{{ parentOption.id }}</option>
+            <option [ngValue]="parentOption" *ngFor="let parentOption of parentsSharedCollection">
+              {{ parentOption.id }}&nbsp;|&nbsp;({{ parentOption.name }})&nbsp;|&nbsp;({{ parentOption.email }})
+            </option>
           </select>
         </div>
       </div>

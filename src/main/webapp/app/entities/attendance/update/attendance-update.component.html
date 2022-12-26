@@ -57,6 +57,7 @@
         <div class="row mb-3">
           <label class="form-label" jhiTranslate="schoolApp.attendance.student" for="field_student">Student</label>
           <select
+            multiple
             class="form-control"
             id="field_student"
             data-cy="student"
@@ -65,7 +66,9 @@
             [compareWith]="compareStudent"
           >
             <option [ngValue]="null"></option>
-            <option [ngValue]="studentOption" *ngFor="let studentOption of studentsSharedCollection">{{ studentOption.id }}</option>
+            <option [ngValue]="studentOption" *ngFor="let studentOption of studentsSharedCollection">
+              {{ studentOption.id }} {{ studentOption.name }}
+            </option>
           </select>
         </div>
       </div>

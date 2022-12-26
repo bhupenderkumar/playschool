@@ -99,7 +99,7 @@
           <td>{{ student.emergencyContact }}</td>
           <td>
             <div *ngIf="student.parent">
-              <a [routerLink]="['/parent', student.parent.id, 'view']">{{ student.parent.id }}</a>
+              <a [routerLink]="['/parent', student.parent.id, 'view']">{{ student.parent.id }}({{ student.parent.name }})</a>
             </div>
           </td>
           <td class="text-end">
